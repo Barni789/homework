@@ -7,10 +7,10 @@ public class Main {
         Player robot = new Robot("Валли", 450, 1);
         Player[] players = {human, cat, robot};
 
-        Hurdles wall1 = new Wall(1);
-        Hurdles wall2 = new Wall(1);
-        Runtrack runTrack1 = new Runtrack(1);
-        Runtrack runTrack2 = new Runtrack(1);
+        Hurdles wall1 = new Wall(90);
+        Hurdles wall2 = new Wall(500);
+        Runtrack runTrack1 = new Runtrack(10);
+        Runtrack runTrack2 = new Runtrack(2);
         Hurdles[] hurdles = {wall1, wall2, runTrack1, runTrack2};
 
         for (int i = 0; i < hurdles.length; i++) {
