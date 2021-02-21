@@ -6,13 +6,13 @@ public class Wall implements Hurdles {
     public Wall(int height) {
         this.height = height;
     }
-    public String winCheck(Player player) {
+     public void winCheck(Player player) {
         player.jump();
         player.setAttempt(player.getMaxHeight() >= height);
         if (player.getAttempt()) {
-            return "Игрок " + player.getName() + " прыгнул: " + height;
+            System.out.println("Игрок " + player.getName() + " прыгнул: " + height + " м");
         } else {
-            return "Игрок " + player.getName() + "не смог прыгнуть: " + height;
+            System.out.println("Игрок " + player.getName() + " не смог прыгнуть: " + height + " м");
         }
     }
 }
