@@ -7,13 +7,13 @@ public class Runtrack implements Hurdles {
         this.length = length;
     }
 
-    public String winCheck(Player player) {
+   public void winCheck(Player player) {
         player.run();
         player.setAttempt(player.getMaxLength() >= length);
         if (player.getAttempt()) {
-            return "Игрок " + player.getName() + " пробежал: " + length;
+            System.out.println("Игрок " + player.getName() + " пробежал: " + length + " м");
         } else {
-            return "Игрок " + player.getName() + " не смог пробежать: " + length;
+            System.out.println("Игрок " + player.getName() + " не смог пробежать: " + length + " м");
         }
     }
 }
