@@ -10,9 +10,9 @@ public class Wall implements Hurdles {
         player.jump();
         player.setAttempt(player.getMaxHeight() >= height);
         if (player.getAttempt()) {
-            return "Игрок " + player.getName() + " прыгнул: " + height + " км";
+            return "Игрок " + player.getName() + " прыгнул: " + height;
         } else {
-            return "Игрок " + player.getName() + "не смог прыгнуть: " + height + " км";
+            return "Игрок " + player.getName() + "не смог прыгнуть: " + height;
         }
     }
 }
