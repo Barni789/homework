@@ -1,10 +1,13 @@
 package alexbu.lesson13;
 
+import java.util.concurrent.BrokenBarrierException;
+
 public class Car implements Runnable {
     private static int CARS_COUNT;
     private Race race;
     private int speed;
     private String name;
+    private Integer place;
     public String getName() {
         return name;
     }
@@ -25,9 +28,24 @@ public class Car implements Runnable {
             System.out.println(this.name + " готов");
             Main.cl.countDown();
             Main.cb.await();
+            for (int i = 0; i < race.getStages().size(); i++) {
+                race.getStages().get(i).go(this);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        for (int i = 0; i < race.getStages().size(); i++) race.getStages().get(i).go(this);
+        try {
+            Main.cl.countDown();
+            place = Main.atomicInteger.getAndIncrement();
+            Main.cb.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (BrokenBarrierException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public Integer getPlace() {
+        return place;
     }
 }
